@@ -1,0 +1,164 @@
+--- css variables ---
+--bev:6px
+--code:"GT Standard Mono",ui-monospace,SFMono-Regular,Menlo,monospace
+--colA:7.98%
+--colB:23.7%
+--color-ink-soft:#33322d
+--color-ink:#1d1c19
+--color-paper:#f2f1ed
+--color-press:#0b0a09
+--color-rule:#1d1c1924
+--color-sky:#015186
+--cross:#1d1c1957
+--cross:#ffffff86
+--default-font-family:var(--font-sans)
+--default-mono-font-family:var(--font-mono)
+--default-transition-duration:.15s
+--default-transition-timing-function:cubic-bezier(.4, 0, .2, 1)
+--ease-in-out:cubic-bezier(.4, 0, .2, 1)
+--ease-out:cubic-bezier(0, 0, .2, 1)
+--ease-press:cubic-bezier(.22, 1, .36, 1)
+--ease:cubic-bezier(.22,1,.36,1)
+--fill:.13
+--fin-c:#2e2109
+--fin-c:#fffaea
+--fin-chip-c:#2e2109
+--fin-chip-c:#fffaea
+--fin-chip:#2e200f1f
+--fin-chip:#ffffff1a
+--font-mono:"GT Standard Mono", ui-monospace, "SF Mono", Menlo, monospace
+--font-sans:"GT Standard L", "Helvetica Neue", Arial, sans-serif
+--font-serif:"Flecha S", "Source Serif 4", "Iowan Old Style", Georgia, serif
+--font-weight-medium:500
+--font-weight-normal:400
+--h1:5.3vw
+--h1:60px
+--h1:64px
+--h2:calc(65.3% + 50px)
+--ink:#1d1c19
+--leading-relaxed:1.625
+--leading-snug:1.375
+--lightningcss-dark: 
+--lightningcss-light:initial
+--mark:#fff
+--mark:var(--ink)
+--mx:calc(var(--v1) + 14.5px)
+--paper:#f2f1ed
+--press:#0b0a09
+--r:999px
+--ra:0deg
+--ra:360deg
+--rim:.86
+--rule:#1d1c192a
+--rule:#ffffff39
+--spacing:.25rem
+--spec:.46
+--text-display--line-height:1.12
+--text-display:clamp(1.875rem, 3.4vw, 3.25rem)
+--text:"GT Standard L",ui-sans-serif,-apple-system,Arial,sans-serif
+--title:"Flecha M","Flecha S","Iowan Old Style",Georgia,serif
+--tracking-press:-.018em
+--tw-backdrop-blur:blur(2.5px)
+--tw-backdrop-blur:blur(2px)
+--tw-backdrop-blur:initial
+--tw-backdrop-brightness:initial
+--tw-backdrop-contrast:initial
+--tw-backdrop-grayscale:initial
+--tw-backdrop-hue-rotate:initial
+--tw-backdrop-invert:initial
+--tw-backdrop-opacity:initial
+--tw-backdrop-saturate:initial
+--tw-backdrop-sepia:initial
+--tw-blur:blur(8px)
+--tw-blur:initial
+--tw-border-style:solid
+--tw-brightness:initial
+--tw-contrast:initial
+--tw-drop-shadow-alpha:100%
+--tw-drop-shadow-color:initial
+--tw-drop-shadow-size:initial
+--tw-drop-shadow:initial
+--tw-duration:.2s
+--tw-duration:.3s
+--tw-duration:.5s
+--tw-duration:.7s
+--tw-duration:initial
+--tw-ease:initial
+--tw-ease:var(--ease-in-out)
+--tw-ease:var(--ease-out)
+--tw-ease:var(--ease-press)
+--tw-font-weight:initial
+--tw-font-weight:var(--font-weight-medium)
+--tw-font-weight:var(--font-weight-normal)
+--tw-grayscale:initial
+--tw-hue-rotate:initial
+--tw-inset-ring-color:initial
+--tw-inset-ring-shadow:0 0 #0000
+--tw-inset-shadow-alpha:100%
+--tw-inset-shadow-color:initial
+--tw-inset-shadow:0 0 #0000
+--tw-invert:initial
+--tw-leading:1.08
+--tw-leading:1.1
+--tw-leading:1.16
+--tw-leading:1.2
+--tw-leading:1.22
+--tw-leading:1.25
+--tw-leading:1.45
+--tw-leading:1.5
+--tw-leading:initial
+--tw-leading:var(--leading-relaxed)
+--tw-leading:var(--leading-snug)
+--tw-opacity:initial
+--tw-outline-style:none
+--tw-outline-style:solid
+--tw-ring-color:initial
+--tw-ring-inset:initial
+--tw-ring-offset-color:#fff
+--tw-ring-offset-shadow:0 0 #0000
+--tw-ring-offset-width:0px
+--tw-ring-shadow:0 0 #0000
+--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor)
+--tw-rotate-x:initial
+--tw-rotate-y:initial
+--tw-rotate-z:initial
+--tw-saturate:initial
+--tw-sepia:initial
+--tw-shadow-alpha:100%
+--tw-shadow-color:initial
+--tw-shadow:0 0 #0000
+--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a), 0 1px 2px -1px var(--tw-shadow-color,#0000001a)
+--tw-skew-x:initial
+--tw-skew-y:initial
+--tw-tracking:-.012em
+--tw-tracking:-.014em
+--tw-tracking:-.01em
+--tw-tracking:.24em
+--tw-tracking:.2em
+--tw-tracking:initial
+--tw-tracking:var(--tracking-press)
+--tw-translate-x:0
+--tw-translate-x:calc(calc(1 / 2 * 100%) * -1)
+--tw-translate-x:calc(var(--spacing) * 1.5)
+--tw-translate-y:0
+--tw-translate-y:calc(calc(1 / 2 * 100%) * -1)
+--tw-translate-z:0
+--v1:4.75%
+--v1:5.3%
+--v2:85.6%
+--v2:95.25%
+--- key selectors ---
+.grid
+.grid-cols-1
+.inline-grid
+.menu
+.nav
+.nav-open
+.text-
+.text-center
+.text-display
+.text-ink
+.text-ink-soft
+.text-paper
+.text-transparent
+.text-wrap

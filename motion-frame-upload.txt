@@ -1,0 +1,40 @@
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/coda-001.webp (size: 113886 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/coda-001_d1e3afed.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/flysky-001.webp (size: 93766 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/flysky-001_608f4f85.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/flysky-060.webp (size: 106058 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/flysky-060_2b93123e.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/plan-001.webp (size: 60492 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/plan-001_35e013b1.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/trans-001.webp (size: 121720 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/trans-001_3722cf7e.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/trans-060.webp (size: 161616 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/trans-060_79005bb7.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/tree-001.webp (size: 114352 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/tree-001_4fdcc133.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/tree-060.webp (size: 47058 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/tree-060_29dad5b7.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/tree-121.webp (size: 253812 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/tree-121_853d9e6b.webp
+
+========== Upload Summary ==========
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/coda-001.webp -> /manus-storage/coda-001_d1e3afed.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/flysky-001.webp -> /manus-storage/flysky-001_608f4f85.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/flysky-060.webp -> /manus-storage/flysky-060_2b93123e.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/plan-001.webp -> /manus-storage/plan-001_35e013b1.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/trans-001.webp -> /manus-storage/trans-001_3722cf7e.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/trans-060.webp -> /manus-storage/trans-060_79005bb7.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/tree-001.webp -> /manus-storage/tree-001_4fdcc133.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/tree-060.webp -> /manus-storage/tree-060_29dad5b7.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/motion-frames/tree-121.webp -> /manus-storage/tree-121_853d9e6b.webp
+=====================================
+Total: 9, Success: 9, Failed: 0

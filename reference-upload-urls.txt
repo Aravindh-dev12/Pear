@@ -1,0 +1,68 @@
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/signal.mp4 (size: 11289195 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/signal_a8dc18f8.mp4
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/colossus.mp4 (size: 5603291 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/colossus_8def21b6.mp4
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/reveal.mp4 (size: 13714356 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/reveal_f913b0d6.mp4
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/footer-loop.mp4 (size: 7557188 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/footer-loop_d96ae176.mp4
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/signal-poster.jpg (size: 60864 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/signal-poster_786ef30f.jpg
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/colossus-poster.jpg (size: 42516 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/colossus-poster_9463a752.jpg
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/reveal-poster.jpg (size: 73926 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/reveal-poster_f523553b.jpg
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/FlechaL-Light.woff2 (size: 39056 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/FlechaL-Light_8c15d251.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/FlechaL-Regular.woff2 (size: 37728 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/FlechaL-Regular_637ff870.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/FlechaM-Light.woff2 (size: 41272 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/FlechaM-Light_6aa646bf.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/FlechaM-Regular.woff2 (size: 39240 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/FlechaM-Regular_4d2342d6.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/FlechaS-Light.woff2 (size: 41740 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/FlechaS-Light_3b88e872.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/FlechaS-Regular.woff2 (size: 39720 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/FlechaS-Regular_ce4777c0.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/GTStandardL-Regular.woff2 (size: 62732 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/GTStandardL-Regular_308bbc84.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/GTStandardL-Medium.woff2 (size: 62772 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/GTStandardL-Medium_7467361a.woff2
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/GTStandardMono-Regular.woff2 (size: 32976 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/GTStandardMono-Regular_ec1410d4.woff2
+
+========== Upload Summary ==========
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/signal.mp4 -> /manus-storage/signal_a8dc18f8.mp4
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/colossus.mp4 -> /manus-storage/colossus_8def21b6.mp4
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/reveal.mp4 -> /manus-storage/reveal_f913b0d6.mp4
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/footer-loop.mp4 -> /manus-storage/footer-loop_d96ae176.mp4
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/signal-poster.jpg -> /manus-storage/signal-poster_786ef30f.jpg
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/colossus-poster.jpg -> /manus-storage/colossus-poster_9463a752.jpg
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/reveal-poster.jpg -> /manus-storage/reveal-poster_f523553b.jpg
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/FlechaL-Light.woff2 -> /manus-storage/FlechaL-Light_8c15d251.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/FlechaL-Regular.woff2 -> /manus-storage/FlechaL-Regular_637ff870.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/FlechaM-Light.woff2 -> /manus-storage/FlechaM-Light_6aa646bf.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/FlechaM-Regular.woff2 -> /manus-storage/FlechaM-Regular_4d2342d6.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/FlechaS-Light.woff2 -> /manus-storage/FlechaS-Light_3b88e872.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/FlechaS-Regular.woff2 -> /manus-storage/FlechaS-Regular_ce4777c0.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/GTStandardL-Regular.woff2 -> /manus-storage/GTStandardL-Regular_308bbc84.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/GTStandardL-Medium.woff2 -> /manus-storage/GTStandardL-Medium_7467361a.woff2
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/GTStandardMono-Regular.woff2 -> /manus-storage/GTStandardMono-Regular_ec1410d4.woff2
+=====================================
+Total: 16, Success: 16, Failed: 0

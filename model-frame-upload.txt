@@ -1,0 +1,32 @@
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-001.webp (size: 72734 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-001_de7e67f6.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-061.webp (size: 58654 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-061_73720e84.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-121.webp (size: 108428 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-121_969ff5fc.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-181.webp (size: 78142 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-181_8f7900f5.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-241.webp (size: 40536 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-241_189b4226.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-301.webp (size: 35932 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-301_de0ebf9c.webp
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-362.webp (size: 45918 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/renaissance-362_941d30d1.webp
+
+========== Upload Summary ==========
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-001.webp -> /manus-storage/renaissance-001_de7e67f6.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-061.webp -> /manus-storage/renaissance-061_73720e84.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-121.webp -> /manus-storage/renaissance-121_969ff5fc.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-181.webp -> /manus-storage/renaissance-181_8f7900f5.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-241.webp -> /manus-storage/renaissance-241_189b4226.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-301.webp -> /manus-storage/renaissance-301_de0ebf9c.webp
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/model-frames/renaissance-362.webp -> /manus-storage/renaissance-362_941d30d1.webp
+=====================================
+Total: 7, Success: 7, Failed: 0

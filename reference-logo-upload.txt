@@ -1,0 +1,12 @@
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/favicon.svg (size: 778 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/favicon_46d88f43.svg
+Uploading file (webdev private): /home/ubuntu/webdev-static-assets/pear-reference/favicon-32.png (size: 750 bytes)
+File uploaded successfully!
+Storage Path: /manus-storage/favicon-32_d1062093.png
+
+========== Upload Summary ==========
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/favicon.svg -> /manus-storage/favicon_46d88f43.svg
+[SUCCESS] /home/ubuntu/webdev-static-assets/pear-reference/favicon-32.png -> /manus-storage/favicon-32_d1062093.png
+=====================================
+Total: 2, Success: 2, Failed: 0

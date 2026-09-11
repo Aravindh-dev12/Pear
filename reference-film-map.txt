@@ -1,0 +1,23 @@
+--- film ids ---
+id:`signal`,src:`/films/signal.mp4`
+id:`colossus`,src:`/films/colossus.mp4`
+id:`reveal`,src:`/films/reveal.mp4`
+--- model frame path context ---
+ance`,count:362}],i={N:r.reduce((e,t)=>e+t.count,0),frames:[],loaded:0},a=-1,o=0;mt.push({name:`reel`,seq:i,get count(){return i.N}});let s=e=>{for(let n of r){if(e<n.count)return`/films/model/${n.name}/${t}/f_${String(e+1).padStart(3,`0`)}.webp?r=13`;e-=n.count}return``};function c(){i.N=r.reduce((e,t)=>e+t.count,0),i.frames=Array(i.N);let e=[],t=0;for(let n of r)e=e.concat(Ct(n.count,t)),t+=n.count;let c=St({order:e,count:i.N,url:s,land:(e,t)=>{le
+n=()=>{i.frames[e]=t,i.loaded++};t.decode?t.decode().then(n,n):n()},want:()=>a});c.hot=()=>o&&performance.now()-o<500,bt(.10010000000000001,n,c)}return Promise.all(r.map(e=>fetch(`/films/model/${e.name}/manifest.json?r=13`).then(e=>e.json()).then(n=>{e.count=n.tiers[t].count}).catch(()=>{}))).then(c),i.aim=e=>{o=performance.now(),e!==a&&(a=e,Et(i.frames,e,i.N))},i.frameNear=e=>{i.aim(e);for(let t=0;t<i.N;t++){if(i.frames[e+t])return i.frames[e+t];if
+--- external source paths ---
+/art/scaffold_expand.jpg
+/films/coda
+/films/colossus-poster.jpg
+/films/colossus.mp4
+/films/flysky
+/films/footer-loop.mp4
+/films/model/${e.name}/manifest.json?r=13
+/films/model/${n.name}/${t}/f_${String(e+1).padStart(3,
+/films/plan
+/films/reveal-poster.jpg
+/films/reveal.mp4
+/films/signal-poster.jpg
+/films/signal.mp4
+/films/trans
+/films/tree

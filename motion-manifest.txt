@@ -1,0 +1,79 @@
+--- film references ---
+reference.js:colossus-poster.jpg
+reference.js:colossus.mp4
+reference.js:e.mov
+reference.js:footer-loop.mp4
+reference.js:reveal-poster.jpg
+reference.js:reveal.mp4
+reference.js:scaffold_expand.jpg
+reference.js:signal-poster.jpg
+reference.js:signal.mp4
+--- scene keywords ---
+e.flags|=524288}else Ki=Ki.next=t;return n}var na=typeof AbortController<`u`?AbortController:function(){var e=[],t=this.signal={aborted:!1,addEventListener:function(t,n){e.push(n)}};this.abort=function(){t.aborted=!0,e.forEach(function(e){return e()})}},ra=t.unstable_scheduleCallback,i
+ar n=t.memoizedState;if(n!==null&&(n=n.dehydrated,n===null||af(n)||of(n)))return t}else if(t.tag===19&&(t.memoizedProps.revealOrder===`forwards`||t.memoizedProps.revealOrder===`backwards`||t.memoizedProps.revealOrder===`unstable_legacy-backwards`||t.memoizedProps.revealOrder===`togethe
+ll,o.renderingStartTime=0,o.last=r,o.tail=n,o.tailMode=i,o.treeForkCount=a)}function Oc(e,t,n){var r=t.pendingProps,i=r.revealOrder,a=r.tail;r=r.children;var o=co.current,s=(o&2)!=0;if(s?(o=o&1|2,t.flags|=128):o&=1,M(co,o),ic(e,t,r,n),r=B?Si:0,!s&&e!==null&&e.flags&128)a:for(e=t.child;
+ t=$i(aa),n=t.data.get(e);return n===void 0&&(n=e(),t.data.set(e,n)),n},cacheSignal:function(){return $i(aa).controller.signal}},Rl=typeof WeakMap==`function`?WeakMap:Map,K=0,q=null,J=null,Y=0,X=0,zl=null,Bl=!1,Vl=!1,Hl=!1,Ul=0,Wl=0,Gl=0,Kl=0,ql=0,Jl=0,Yl=0,Xl=null,Zl=null,Ql=!1,$l=0,e
+},S={t0:-1},C=matchMedia(`(prefers-reduced-motion: reduce)`).matches,te=matchMedia(`(pointer: coarse)`).matches,w=[{id:`signal`,src:`/films/signal.mp4`,poster:`/films/signal-poster.jpg`,origin:[.707,.926],pos:[.72,.72,1],bridge:`v28`},{id:`colossus`,src:`/films/colossus.mp4`,poster:`/f
+ilms/colossus-poster.jpg`,origin:[.732,.54],pos:[.72,.6,1],bridge:`v51`},{id:`reveal`,src:`/films/reveal.mp4`,poster:`/films/reveal-poster.jpg`,origin:[.84,.63],pos:[.72,.62,1],bridge:`v61`}],T=1200/5350,E=600/5350,ne=300/5350,re=900/5350,ie=300/5350,ae=600/5350,oe=500/5350,se=250/5
+ith Pear?`,`The cost`,`Nothing upfront and nothing hourly. We fund the strategy, the software, the content and the link building ourselves. Our payment is an agreed percentage of the new revenue that work generates. If your revenue doesn’t grow, you owe us nothing.`],[`What share of t
+he revenue do you take?`,`The share`,`It’s agreed per partnership before we start, and depends on how much building the opportunity needs. It applies only to growth above your existing baseline, never to the revenue you already had.`],[`Why revenue share instead of fees?`
+t a=matchMedia(`(max-width: 820px)`).matches?`/768`:``,o={imgs:[],ready:!1,loaded:0},s=-1,c=0;mt.push({name:e.replace(`/films/`,``),seq:o,count:t});let l=St({order:Ct(t),count:t,url:t=>`${e}${a}/f_${String(t+1).padStart(3,`0`)}.webp?r=13`,land:(e,t)=>{o.imgs[e]=t,++o.loaded>n&&(o.rea
+,loaded:0},a=-1,o=0;mt.push({name:`reel`,seq:i,get count(){return i.N}});let s=e=>{for(let n of r){if(e<n.count)return`/films/model/${n.name}/${t}/f_${String(e+1).padStart(3,`0`)}.webp?r=13`;e-=n.count}return``};function c(){i.N=r.reduce((e,t)=>e+t.count,0),i.frames=Array(i.N);let e=
+):n()},want:()=>a});c.hot=()=>o&&performance.now()-o<500,bt(.10010000000000001,n,c)}return Promise.all(r.map(e=>fetch(`/films/model/${e.name}/manifest.json?r=13`).then(e=>e.json()).then(n=>{e.count=n.tiers[t].count}).catch(()=>{}))).then(c),i.aim=e=>{o=performance.now(),e!==a&&(a=e,E
+    uniform sampler2D uA, uB;          // the film, the reel
+    uniform float uPanPx;   // the hero framing: how far the film is slid
+    uniform sampler2D uE;   // and the film that closes it out
+    uniform float uCoda;    // how far the closing film has taken the frame
+    uniform float uFlat;    // and how far flat colour has taken the film
+    // the grafting film's own horizontal centre, on top of the page's pan.
+    uniform sampler2D uP;   // the plate: the pear drawn in plan
+    uniform float uBurnX;   // the seam's axis — the pear's own split
+    uniform vec2  uOrigin;             // the pear, in the film's own frame
+       on its own — the grafting film wants a different centre from the
+        /* The frame is taller than the film, so the fit is by height and
+    // the other way round: a point in the film's frame → where it lands
+    // on screen, so the ring can be pinned to the pear at any viewport.
+    // from where the pear would be on an untouched frame.
+         it cannot reach a single pixel, and once the closing film owns it
+        // reel expands out of a point; outside, the film is drawn inward.
+        // --- the reel prints itself over the film: a halftone screen
+           right corner. Ahead of it the film is untouched; behind it the
+           painting stands. The crest itself is where the signal fails —
+        /* --- ring: the same failure, but it leaves from the pear in her
+           raised hand and opens outward. The film already draws concentric
+           signal rings from that point; this rides them.               */
+           → the film, transformed), and any pixel with r inside t·1.6 −
+           actually lives (including its resting breath at the pear),
+        // 1 · the tear runs outward from the pear, with a row tear under it
+             frame is not displaced at all, and the draw builds up over the
+        // gilt of the pear it left — light travelling out, not a tear
+      } // the film, the ring and the seam end here when covered
+         the frame. The flat paper then takes the film the same way, so the
+         crossing, every pixel it has fully revealed (past the cut, past
+         the ember's reach) ends the frame as one sample of the film — so
+        /* The film under the sheet is dead pixels once the paper's tone
+           over what had been a clean film frame. Nothing here now changes
+        /* Not a colour filling the screen — a sheet. Four things build it and
+           there is no second moment when a treatment appears. And when the
+             chaotic ring the film uses at the top of the page: an fbm-lobed
+        /* The front fully through, the reveal is the whole frame: the lag
+           sample of the film — which is all the questions and the rise
+          /* Fully revealed: the whole path below resolves to one lagged
+             sample of the film — char is zero past the cut, the darken is
+        // function from its declaration on, and the reveal below calls it
+           appeared the moment you scrolled. Gated here, the scorch exists only
+           front leaves it behind. So the reveal reads as the new picture
+           the dim that appeared the moment the plate settled. */
+Tn=`0x4AAAAAAECR6CzEFNGbEa4o`,En=null,Dn=null,On=null,kn=null;function An(){return On||(On=new Promise((e,t)=>{window.__pearTurnstileReady=()=>e(window.turnstile);let n=document.createElement(`script`);n.src=`https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onloa
+d=__pearTurnstileReady`,n.async=!0,n.onerror=()=>t(Error(`turnstile script`)),document.head.appendChild(n)}),On)}async function jn(){if(En=await An(),Dn===null){let e=d
+nd`);i=!0,e.textContent=`Application sent.`,e.style.cursor=`default`}catch{r=!1,e.textContent=`Send failed — email info@pear.no`,setTimeout(()=>{!i&&!r&&(e.textContent=n)},4e3)}finally{i||(r=!1)}})}var Nn,Pn,Fn,In=-1,Ln=null,Rn=0,zn,Bn,Vn,Hn,Un,Wn,Gn=[],Kn=[],qn=-1,Jn=[],Yn=0,Xn=[0,0
+-.5)*7).toFixed(2)})}}function wr(){Cr(0),Nn=document.querySelector(`.fly`),Pn=document.querySelector(`.fly-w`),Fn=wt(`/films/flysky`,121,2,1-ce-se-oe,1),sr=document.querySelector(`.trans`),cr=wt(`/films/trans`,121,2,1-ce,1),Zn=document.querySelector(`.foot`),Zn.muted=!0,Zn.setAttrib
+er(`pointerdown`,w,{once:!0});let M=matchMedia(`(max-width: 820px)`).matches?`768`:`1440`,ge=Dt(r.bridge,M,T+E),_e=wt(`/films/plan`,121,2,T+E+ne,T+E+ne+re),ve=wt(`/films/coda`,89,3,T+E,T+E+ne+re),ye=wt(`/films/tree`,121,2,T+E+ne,1-ce-se-oe),{gl:P,canvas:Ce,tex:we,u:F,upload:Te,plate:
+Ge.y)*Et:0,bt?1+(Ge.z-1)*Et:1),P.uniform1f(F.uPanG,bt?St(Ue.x)*f(d((be(ut)-Ue.from)/Math.max(.001,Ue.ramp),0,1)):0),Hi(`film`),$t(i,ft,t,xt,a(),l?null:{el:s,p:f(m)}),Hi(`mask`),P.uniform1f(F.uT,gt),P.uniform1f(F.uTime,t/1e3),P.uniform1i(F.uMode,Ae);let Dt=Me.overlap,Ot=d((gt-Dt[0])/(
+Priority:`high`,alt:``,"aria-hidden":`true`}),(0,V.jsxs)(`p`,{className:`boot-note`,"aria-hidden":`true`,children:[`The film is loading`,(0,V.jsx)(`b`,{})]}),(0,V.jsx)(`svg`,{className:`inkdef`,"aria-hidden":`true`,children:(0,V.jsxs)(`defs`,{children:[(0,V.jsxs)(`filter`,{id:`inkf`,
+:`PEAR AS · ORG NR 919 062 517 · OSLO`}),(0,V.jsx)(`p`,{className:`ft-meta r`,children:(0,V.jsx)(`a`,{href:`mailto:info@pear.no`,children:`INFO@PEAR.NO`})})]})}),(0,V.jsx)(`canvas`,{className:`trans`,"aria-hidden":`true`}),(0,V.jsx)(`video`,{className:`foot`,src:`/films/footer-loop.m
+share of the revenue the work creates, measured against your baseline and visible to both sides. You keep everything we build: the software, the content, the rankings. And we take on a few partners at a time, because when we are paid on the outcome, yes has to be earned.`})]})]})})]})
+ame:`pf-h`,style:{width:384},children:[(0,V.jsx)(`span`,{className:`ln`,children:(0,V.jsx)(`i`,{children:`We design and build the thing being`})}),(0,V.jsx)(`span`,{className:`ln`,children:(0,V.jsx)(`i`,{children:`ranked: storefronts, marketplaces,`})}),(0,V.jsx)(`span`,{className:`ln
+0`,children:[(0,V.jsx)(`h1`,{children:(0,V.jsx)(`span`,{className:`ln`,children:(0,V.jsx)(`i`,{children:`Pear makes you appear.`})})}),(0,V.jsxs)(`p`,{className:`subhead`,children:[(0,V.jsx)(`span`,{className:`ln`,children:(0,V.jsx)(`i`,{children:`Not an agency on the clock,`})}),(0,V.
+ildren:(0,V.jsx)(`div`,{className:`beat`,children:(0,V.jsx)(`span`,{className:`ln`,children:(0,V.jsx)(`i`,{children:`We build it.`})})})}),(0,V.jsx)(`div`,{className:`bk`,"data-beat":`2`,children:(0,V.jsx)(`div`,{className:`beat`,children:(0,V.jsx)(`span`,{className:`ln`,children:(0,V
+stand`,children:[(0,V.jsx)(`div`,{className:`bk`,"data-beat":`0`,children:(0,V.jsx)(`p`,{className:`stand`,children:`We build custom software, rank it where customers search, and take our pay as a share of the revenue it earns. No retainers, no hours: if you don’t grow, we don’t get p

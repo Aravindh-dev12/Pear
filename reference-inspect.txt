@@ -1,0 +1,73 @@
+--- media refs ---
+reference.css:/fonts/FlechaL-Light.woff2
+reference.css:/fonts/FlechaL-Regular.woff2
+reference.css:/fonts/FlechaM-Light.woff
+reference.css:/fonts/FlechaM-Light.woff2
+reference.css:/fonts/FlechaM-Regular.woff
+reference.css:/fonts/FlechaM-Regular.woff2
+reference.css:/fonts/FlechaS-Light.woff2
+reference.css:/fonts/FlechaS-Regular.woff2
+reference.css:/fonts/GTStandardL-Medium.woff2
+reference.css:/fonts/GTStandardL-Regular.woff2
+reference.css:/fonts/GTStandardMono-Regular.woff2
+reference.js:/art/scaffold_expand.jpg
+reference.js:/f_${String(t+1).padStart(3,`0`)}.webp
+reference.js:/films/footer-loop.mp4
+reference.js:/films/model/${n.name}/${t}/f_${String(e+1).padStart(3,`0`)}.webp
+reference.js:/films/signal.mp4`,poster:`/films/signal-poster.jpg`,origin:[.707,.926],pos:[.72,.72,1],bridge:`v28`},{id:`colossus`,src:`/films/colossus.mp4`,poster:`/films/colossus-poster.jpg`,origin:[.732,.54],pos:[.72,.6,1],bridge:`v51`},{id:`reveal`,src:`/films/reveal.mp4`,poster:`/films/reveal-poster.jpg
+--- font refs ---
+font-family:var(--font-sans)
+font-family:var(--font-mono)
+font-family:var(--default-font-family,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji")
+font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace)
+font-family:var(--font-mono)
+font-family:var(--font-mono)
+font-family:var(--font-sans)
+font-family:var(--font-serif)
+@font-face{font-family:Flecha S;src:url(/fonts/FlechaS-Light.woff2?v=2)format("woff2");font-weight:300;font-style:normal;font-display:swap
+@font-face{font-family:Flecha S;src:url(/fonts/FlechaS-Regular.woff2?v=2)format("woff2");font-weight:400;font-style:normal;font-display:swap
+@font-face{font-family:GT Standard L;src:url(/fonts/GTStandardL-Regular.woff2)format("woff2");font-weight:400;font-style:normal;font-display:swap
+@font-face{font-family:GT Standard L;src:url(/fonts/GTStandardL-Medium.woff2)format("woff2");font-weight:500;font-style:normal;font-display:swap
+@font-face{font-family:GT Standard Mono;src:url(/fonts/GTStandardMono-Regular.woff2)format("woff2");font-weight:400;font-style:normal;font-display:swap
+@font-face{font-family:Flecha L;src:url(/fonts/FlechaL-Light.woff2)format("woff2");font-weight:300;font-display:swap
+@font-face{font-family:Flecha L;src:url(/fonts/FlechaL-Regular.woff2)format("woff2");font-weight:400;font-display:swap
+@font-face{font-family:Flecha M;src:url(/fonts/FlechaM-Light.woff2)format("woff2"),url(/fonts/FlechaM-Light.woff)format("woff");font-weight:300;font-display:swap
+@font-face{font-family:Flecha M;src:url(/fonts/FlechaM-Regular.woff2)format("woff2"),url(/fonts/FlechaM-Regular.woff)format("woff");font-weight:400;font-display:swap
+@font-face{font-family:Flecha S;src:url(/fonts/FlechaS-Light.woff2)format("woff2");font-weight:300;font-display:swap
+@font-face{font-family:Flecha S;src:url(/fonts/FlechaS-Regular.woff2)format("woff2");font-weight:400;font-display:swap
+@font-face{font-family:GT Standard L;src:url(/fonts/GTStandardL-Regular.woff2)format("woff2");font-weight:400;font-display:swap
+@font-face{font-family:GT Standard Mono;src:url(/fonts/GTStandardMono-Regular.woff2)format("woff2");font-weight:400;font-display:swap
+font-family:var(--code)
+font-family:"Flecha L","Flecha M","Flecha S",var(--title)
+font-family:"Flecha M","Flecha S",var(--title)
+font-family:var(--text)
+font-family:"Flecha S",var(--title)
+font-family:var(--code)
+font-family:var(--code)
+font-family:"Flecha S",var(--title)
+font-family:var(--text)
+font-family:var(--code)
+font-family:"Flecha S",var(--title)
+font-family:"Flecha M","Flecha S",var(--title)
+font-family:"Flecha S",var(--title)
+font-family:var(--text)
+font-family:var(--code)
+font-family:var(--code)
+font-family:var(--code)
+font-family:"Flecha S",var(--title)
+font-family:var(--text)
+font-family:Flecha L,Flecha M,Iowan Old Style,Georgia,serif
+font-family:var(--code)
+font-family:var(--code)
+font-family:var(--code)
+font-family:var(--code)
+font-family:var(--title)
+font-family:var(--text)
+--- runtime clues ---
+     10 canvas
+      6 getContext
+      3 pointermove
+      3 requestAnimationFrame
+     42 scroll
+     20 video
+     12 wheel
