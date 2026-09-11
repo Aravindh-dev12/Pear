@@ -6,6 +6,78 @@
   "outputDirectory": "dist/public",
   "rewrites": [
     {
+      "source": "^/manus-storage/tree-(?<frame>\\d{3})_[^.]+\\.webp$",
+      "destination": "https://pear.no/films/tree/f_$frame.webp?r=13"
+    },
+    {
+      "source": "^/manus-storage/flysky-(?<frame>\\d{3})_[^.]+\\.webp$",
+      "destination": "https://pear.no/films/flysky/f_$frame.webp?r=13"
+    },
+    {
+      "source": "^/manus-storage/trans-(?<frame>\\d{3})_[^.]+\\.webp$",
+      "destination": "https://pear.no/films/trans/f_$frame.webp?r=13"
+    },
+    {
+      "source": "^/manus-storage/plan-(?<frame>\\d{3})_[^.]+\\.webp$",
+      "destination": "https://pear.no/films/plan/f_$frame.webp?r=13"
+    },
+    {
+      "source": "^/manus-storage/coda-(?<frame>\\d{3})_[^.]+\\.webp$",
+      "destination": "https://pear.no/films/coda/f_$frame.webp?r=13"
+    },
+    {
+      "source": "^/manus-storage/renaissance-(?<frame>\\d{3})_[^.]+\\.webp$",
+      "destination": "https://pear.no/films/model/renaissance/1440/f_$frame.webp?r=13"
+    },
+    {
+      "source": "^/manus-storage/signal_[^.]+\\.mp4$",
+      "destination": "https://pear.no/films/signal.mp4"
+    },
+    {
+      "source": "^/manus-storage/signal-poster_[^.]+\\.jpg$",
+      "destination": "https://pear.no/films/signal-poster.jpg"
+    },
+    {
+      "source": "^/manus-storage/colossus_[^.]+\\.mp4$",
+      "destination": "https://pear.no/films/colossus.mp4"
+    },
+    {
+      "source": "^/manus-storage/colossus-poster_[^.]+\\.jpg$",
+      "destination": "https://pear.no/films/colossus-poster.jpg"
+    },
+    {
+      "source": "^/manus-storage/favicon_[^.]+\\.svg$",
+      "destination": "https://pear.no/favicon.svg"
+    },
+    {
+      "source": "^/manus-storage/favicon-32_[^.]+\\.png$",
+      "destination": "https://pear.no/favicon-32.png"
+    },
+    {
+      "source": "^/manus-storage/FlechaS-Light_[^.]+\\.woff2$",
+      "destination": "https://pear.no/fonts/FlechaS-Light.woff2?v=2"
+    },
+    {
+      "source": "^/manus-storage/FlechaS-Regular_[^.]+\\.woff2$",
+      "destination": "https://pear.no/fonts/FlechaS-Regular.woff2?v=2"
+    },
+    {
+      "source": "^/manus-storage/FlechaL-Regular_[^.]+\\.woff2$",
+      "destination": "https://pear.no/fonts/FlechaL-Regular.woff2"
+    },
+    {
+      "source": "^/manus-storage/GTStandardL-Regular_[^.]+\\.woff2$",
+      "destination": "https://pear.no/fonts/GTStandardL-Regular.woff2"
+    },
+    {
+      "source": "^/manus-storage/GTStandardL-Medium_[^.]+\\.woff2$",
+      "destination": "https://pear.no/fonts/GTStandardL-Medium.woff2"
+    },
+    {
+      "source": "^/manus-storage/GTStandardMono-Regular_[^.]+\\.woff2$",
+      "destination": "https://pear.no/fonts/GTStandardMono-Regular.woff2"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
