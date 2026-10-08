@@ -1,8 +1,20 @@
-# Pear
+# Oundnote landing page
 
-A Vite + React implementation of the Pear landing-page experience.
+This repository contains the redesigned Oundnote marketing and product-explainer site.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAravindh-dev12%2FPear&project-name=pear)
+The original Pear frontend has been completely reworked around the **Oundnote** project: private local AI meeting memory, transcription, speaker diarization, searchable meeting knowledge, RAG, and a bounded local MCP bridge for desktop AI clients.
+
+## Source project
+
+- Oundnote: https://github.com/Aravindh-dev12/oundnote
+- Product site: https://oundnote.eu
+
+## Local development
+
+```bash
+pnpm install
+pnpm dev
+```
 
 ## Production build
 
@@ -11,11 +23,4 @@ pnpm install --frozen-lockfile
 pnpm exec vite build
 ```
 
-Vite builds the frontend to `dist/public`. The root `vercel.json` contains the Vercel build settings, SPA fallback, and production media/font rewrites required by the current implementation.
-
-## Local development
-
-```bash
-pnpm install
-pnpm dev
-```
+The Vercel configuration builds the Vite SPA into `dist/public` and applies a single SPA fallback for client-side routing.
