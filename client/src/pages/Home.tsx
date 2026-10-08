@@ -4,44 +4,54 @@ import { ArrowUpRight, AudioLines, Github, Menu, X, Zap, Shield, Radio, BrainCir
 function WebGPUField() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    let dead = false, raf = 0;
-    const canvas = ref.current;
-    if (!canvas) return;
-    const run = async () => {
-      const gpu = (navigator as any).gpu;
-      if (!gpu) return;
-      const adapter = await gpu.requestAdapter();
-      const device = await adapter?.requestDevice();
-      if (!device || dead) return;
-      const ctx = canvas.getContext("webgpu") as any;
-      if (!ctx) return;
-      const format = gpu.getPreferredCanvasFormat();
-      ctx.configure({ device, format, alphaMode: "premultiplied" });
-      const shaderCode = [
-        "struct U { t:f32, aspect:f32, mx:f32, my:f32 };",
+    let dead=false, raf=0;
+    const canvas=ref.current;
+    if(!canvas) return;
+    const run=async()=>{
+      const gpu=(navigator as any).gpu;
+      if(!gpu) return;
+      const adapter=await gpu.requestAdapter();
+      const device=await adapter?.requestDevice();
+      if(!device||dead) return;
+      const ctx=canvas.getContext("webgpu") as any;
+      if(!ctx) return;
+      const format=gpu.getPreferredCanvasFormat();
+      ctx.configure({device,format,alphaMode:"opaque"});
+      const shaderCode=[
+        "struct U { t:f32, aspect:f32 };",
         "@group(0) @binding(0) var<uniform> u:U;",
-        "@vertex fn vs(@builtin(vertex_index) i:u32)->@builtin(position) vec4<f32>{ var p=array<vec2<f32>,3>(vec2<f32>(-1.,-1.),vec2<f32>(3.,-1.),vec2<f32>(-1.,3.)); return vec4<f32>(p[i],0.,1.); }",
-        "fn hash(p:vec2<f32>)->f32{ return fract(sin(dot(p,vec2<f32>(127.1,311.7)))*43758.5453); }",
+        "@vertex fn vs(@builtin(vertex_index) i:u32)->@builtin(position) vec4<f32>{var p=array<vec2<f32>,3>(vec2<f32>(-1.,-1.),vec2<f32>(3.,-1.),vec2<f32>(-1.,3.));return vec4<f32>(p[i],0.,1.);}",
+        "fn rot(p:vec2<f32>,a:f32)->vec2<f32>{let c=cos(a);let s=sin(a);return vec2<f32>(p.x*c-p.y*s,p.x*s+p.y*c);}",
         "@fragment fn fs(@builtin(position) p:vec4<f32>)->@location(0) vec4<f32>{",
-        "var uv=(p.xy/vec2<f32>(1200.,1200.))-.5; uv.x*=u.aspect;",
-        "let t=u.t*.12; var col=vec3<f32>(0.);",
-        "for(var i:f32=1.;i<7.;i+=1.){ let a=atan2(uv.y,uv.x)+sin(t+i)*.12; let r=length(uv); let wave=abs(r-(.12*i+.035*sin(a*5.+t*i)*.018)); let glow=.0025/max(wave,.001); col+=vec3<f32>(.72,.76,.78)*glow*(.25+hash(vec2<f32>(i,i*3.1))); }",
-        "let beam=exp(-abs(uv.y-sin(uv.x*3.+t)*.035)*90.); col+=vec3<f32>(.55,.58,.6)*beam*.035;",
-        "let vignette=1.-smoothstep(.2,.78,length(uv)); return vec4<f32>(col*vignette,.92); }"
+        "var uv=p.xy/vec2<f32>(max(1.,u.aspect*900.),900.)-vec2<f32>(.5,.5);",
+        "uv.x*=u.aspect;",
+        "let t=u.t*.08;",
+        "let q=rot(uv,t*.12);",
+        "let d=length(q);",
+        "let a=atan2(q.y,q.x);",
+        "let grid=abs(sin(q.x*34.+sin(q.y*7.+t)*1.5)*sin(q.y*34.+t*.7));",
+        "let ring=exp(-pow(abs(d-.31-sin(a*6.+t)*.018),2.)/.0018);",
+        "let ring2=exp(-pow(abs(d-.48+sin(a*4.-t*.7)*.012),2.)/.0028);",
+        "let core=exp(-d*d*18.);",
+        "let beam=exp(-abs(q.y-sin(q.x*3.+t)*.04)*70.);",
+        "var glow=vec3<f32>(.55,.58,.62)*(ring*.42+ring2*.24)+vec3<f32>(.25,.27,.3)*core+vec3<f32>(.13,.15,.17)*beam;",
+        "glow*=.72+.28*grid;",
+        "let vignette=1.-smoothstep(.28,.76,d);",
+        "return vec4<f32>(glow*vignette,1.);}",
       ].join("\n");
-      const shader = device.createShaderModule({code:shaderCode});
-      const pipe = device.createRenderPipeline({layout:"auto",vertex:{module:shader,entryPoint:"vs"},fragment:{module:shader,entryPoint:"fs",targets:[{format}]},primitive:{topology:"triangle-list"}});
-      const buf=device.createBuffer({size:16,usage:(GPUBufferUsage as any).UNIFORM|(GPUBufferUsage as any).COPY_DST});
+      const shader=device.createShaderModule({code:shaderCode});
+      const pipe=device.createRenderPipeline({layout:"auto",vertex:{module:shader,entryPoint:"vs"},fragment:{module:shader,entryPoint:"fs",targets:[{format}]},primitive:{topology:"triangle-list"}});
+      const buf=device.createBuffer({size:8,usage:72});
       const bind=device.createBindGroup({layout:pipe.getBindGroupLayout(0),entries:[{binding:0,resource:{buffer:buf}}]});
+      const resize=()=>{const d=Math.min(devicePixelRatio,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;canvas.style.width=innerWidth+"px";canvas.style.height=innerHeight+"px";};
+      resize();addEventListener("resize",resize);
       const start=performance.now();
-      const resize=()=>{const d=Math.min(devicePixelRatio,2); canvas.width=innerWidth*d; canvas.height=innerHeight*d; canvas.style.width=innerWidth+"px"; canvas.style.height=innerHeight+"px";};
-      resize(); addEventListener("resize",resize);
-      const frame=()=>{if(dead)return; const t=(performance.now()-start)/1000; const arr=new Float32Array([t,innerWidth/innerHeight,0,0]); device.queue.writeBuffer(buf,0,arr); const enc=device.createCommandEncoder(); const pass=enc.beginRenderPass({colorAttachments:[{view:ctx.getCurrentTexture().createView(),clearValue:{r:0,g:0,b:0,a:1},loadOp:"clear",storeOp:"store"}]}); pass.setPipeline(pipe); pass.setBindGroup(0,bind); pass.draw(3); pass.end(); device.queue.submit([enc.finish()]); raf=requestAnimationFrame(frame);};
+      const frame=()=>{if(dead)return;const t=(performance.now()-start)/1000;device.queue.writeBuffer(buf,0,new Float32Array([t,innerWidth/Math.max(1,innerHeight)]));const enc=device.createCommandEncoder();const pass=enc.beginRenderPass({colorAttachments:[{view:ctx.getCurrentTexture().createView(),clearValue:{r:0,g:0,b:0,a:1},loadOp:"clear",storeOp:"store"}]});pass.setPipeline(pipe);pass.setBindGroup(0,bind);pass.draw(3);pass.end();device.queue.submit([enc.finish()]);raf=requestAnimationFrame(frame);};
       frame();
-      return ()=>removeEventListener("resize",resize);
+      return()=>removeEventListener("resize",resize);
     };
     run();
-    return ()=>{dead=true; cancelAnimationFrame(raf)};
+    return()=>{dead=true;cancelAnimationFrame(raf)};
   },[]);
   return <canvas ref={ref} className="gpu-field" aria-hidden="true"/>;
 }
