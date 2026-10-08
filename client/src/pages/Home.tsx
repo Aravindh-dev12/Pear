@@ -1,366 +1,117 @@
-/*
-  Design philosophy: cinematic editorial web design.
-  The page pairs a mineral-blue 3D stage with acid-pear markers, precise grid lines,
-  serif editorial statements, and quiet camera-like interactions.
-*/
-import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
-import CanvasScrubScene from "@/components/CanvasScrubScene";
-import { denseFrames } from "@/lib/denseFrames";
+import { useEffect, useState, type CSSProperties } from "react";
+import { ArrowRight, AudioLines, BrainCircuit, Check, ChevronDown, Database, Github, LockKeyhole, Menu, Mic, Monitor, Network, Search, ShieldCheck, Sparkles, Users, X } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const pearMark = "/manus-storage/favicon_46d88f43.svg";
-const sceneFilms = {
-  hero: { kind: "video", src: "/manus-storage/signal_a8dc18f8.mp4", poster: "/manus-storage/signal-poster_786ef30f.jpg" },
-  model: { kind: "video", src: "/manus-storage/colossus_8def21b6.mp4", poster: "/manus-storage/colossus-poster_9463a752.jpg" },
-  fit: { kind: "image", src: "/manus-storage/tree-001_4fdcc133.webp", poster: "/manus-storage/tree-121_853d9e6b.webp" },
-  work: { kind: "image", src: "/manus-storage/flysky-060_2b93123e.webp", poster: "/manus-storage/flysky-001_608f4f85.webp" },
-  terms: { kind: "image", src: "/manus-storage/trans-060_79005bb7.webp", poster: "/manus-storage/trans-001_3722cf7e.webp" },
-  questions: { kind: "image", src: "/manus-storage/plan-001_35e013b1.webp", poster: "/manus-storage/plan-001_35e013b1.webp" },
-  application: { kind: "image", src: "/manus-storage/coda-001_d1e3afed.webp", poster: "/manus-storage/coda-001_d1e3afed.webp" },
-} as const;
-type SceneKey = keyof typeof sceneFilms;
-type DenseKey = keyof typeof denseFrames;
-const denseForScene: Partial<Record<SceneKey, DenseKey>> = { model: "renaissance", fit: "tree", work: "flysky", terms: "trans", questions: "plan", application: "coda" };
+const features: { icon: LucideIcon; eyebrow: string; title: string; copy: string }[] = [
+  { icon: Mic, eyebrow: "CAPTURE", title: "Record the whole conversation.", copy: "Capture microphone, system audio, imports, and live input in one private workspace. Keep both sides of a call in sync." },
+  { icon: AudioLines, eyebrow: "TRANSCRIBE", title: "Turn speech into a usable transcript.", copy: "Choose separate live and final transcription engines, preserve timestamps, and keep the raw conversation available for review." },
+  { icon: Users, eyebrow: "UNDERSTAND", title: "Know who said what.", copy: "Diarize speakers, rename them, save voice samples, and match identities across meetings without sending recordings to a hosted service." },
+  { icon: BrainCircuit, eyebrow: "ANALYZE", title: "Make every meeting searchable.", copy: "Create structured AI notes, exact keyword search, hybrid RAG, and grounded answers that point back to the original meeting evidence." },
+];
 
-function StableVideo({ src, poster, className, style }: { src: string; poster: string; className: string; style?: CSSProperties }) {
-  const [ready, setReady] = useState(false);
-  return (
-    <div className={`${className} scene-video-shell`} style={style}>
-      <img className="scene-video-poster" src={poster} alt="" aria-hidden="true" />
-      <video
-        className="scene-video"
-        src={src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-        onLoadedData={() => setReady(true)}
-        onCanPlay={() => setReady(true)}
-        style={{ opacity: ready ? 1 : 0 }}
-      />
-    </div>
-  );
-}
-
-function SceneLayer({ scene, frameIndex, className, style }: { scene: SceneKey; frameIndex: number; className: string; style?: CSSProperties }) {
-  const media = sceneFilms[scene];
-  const denseKey = denseForScene[scene];
-  if (denseKey) {
-    return <CanvasScrubScene frames={denseFrames[denseKey]} frameIndex={frameIndex} className={`${className} scene-scrub-canvas`} style={style} />;
-  }
-  return <StableVideo src={media.src} poster={media.poster} className={className} style={style} />;
-}
+const principles = [
+  ["01", "Local by default", "Recordings, transcripts, model files, and application data stay under your control."],
+  ["02", "Modular AI", "Transcription, diarization, voice matching, retrieval, and analysis are independent stages."],
+  ["03", "Traceable answers", "Meeting IDs, timestamps, speakers, and source excerpts keep AI output grounded."],
+  ["04", "Open architecture", "A bounded local MCP server connects your meeting library to compatible desktop AI clients."],
+];
 
 const faqs = [
-  {
-    question: "What does it cost to work with Pear?",
-    answer:
-      "Nothing upfront and nothing hourly. We fund the strategy, software, content and link building ourselves. Our payment is an agreed percentage of the new revenue that work generates. If your revenue does not grow, you owe us nothing.",
-  },
-  {
-    question: "What share of the revenue do you take?",
-    answer:
-      "It is agreed per partnership before we start and depends on how much building the opportunity needs. It applies only to growth above your existing baseline, never to the revenue you already had.",
-  },
-  {
-    question: "Why revenue share instead of fees?",
-    answer:
-      "Hourly billing pays agencies for effort, not results. We removed the retainer, so the only way for us to get paid is to grow your revenue.",
-  },
-  {
-    question: "How do you measure the revenue you create?",
-    answer:
-      "Before we begin, we agree on a baseline and on how new organic revenue is attributed: analytics, order data or bookings. Both sides see the same dashboard.",
-  },
-  {
-    question: "How long before it pays off?",
-    answer:
-      "Search compounds slowly, then quickly. Software and technical fixes land in weeks; rankings and revenue typically move within months. The waiting costs you nothing because we finance the ramp.",
-  },
+  ["Is Oundnote cloud based?", "No. Oundnote is designed as a local-first, self-hosted meeting assistant. Your recordings, transcripts, model files, and application data remain on your computer unless you deliberately connect an external service or integration."],
+  ["Can it record video calls?", "Yes. Capture microphone and system audio together so your voice and the other participants can be transcribed from one synchronized local recording. Platform-specific audio capture is documented for Windows, macOS, and Linux."],
+  ["What can I do with an old meeting?", "Search exact terms, search by meaning with hybrid retrieval, inspect timestamps and speakers, read AI notes, or ask a compatible desktop AI client to retrieve grounded evidence from the meeting library."],
+  ["Does Oundnote require one specific AI model?", "No. The processing pipeline is intentionally modular. Live transcription, final transcription, diarization, saved-voice matching, embeddings, and analysis can use separate engines and model choices."],
+  ["What is the MCP server?", "It is a read-only local bridge for Claude Desktop, ChatGPT Desktop, Codex, and compatible MCP clients. It exposes bounded meeting knowledge without giving the client direct access to the database, recordings, settings, or filesystem."],
 ];
 
-const navItems = [
-  ["The model", "#model"],
-  ["The work", "#work"],
-  ["The terms", "#terms"],
-  ["Questions", "#questions"],
-];
+function Kicker({ children }: { children: string }) { return <span className="kicker">{children}</span>; }
+function FeatureCard({ item }: { item: typeof features[number] }) {
+  const Icon = item.icon;
+  return <article className="feature-card"><div className="feature-icon"><Icon size={19}/></div><Kicker>{item.eyebrow}</Kicker><h3>{item.title}</h3><p>{item.copy}</p><ArrowRight className="feature-arrow" size={16}/></article>;
+}
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [applicationOpen, setApplicationOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState(0);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
-  const [activeScene, setActiveScene] = useState<SceneKey>("hero");
-  const [sceneTransition, setSceneTransition] = useState(0);
-  const [activeFrameIndex, setActiveFrameIndex] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [scrollVelocity, setScrollVelocity] = useState(0);
-  const [sceneMix, setSceneMix] = useState(1);
-  const activeFrameRef = useRef(0);
-  const activeSceneRef = useRef<SceneKey>("hero");
+  const [menu, setMenu] = useState(false);
+  const [faq, setFaq] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+  const [pointer, setPointer] = useState({x:0,y:0});
 
   useEffect(() => {
-    const handlePointer = (event: PointerEvent) => {
-      const x = event.clientX / window.innerWidth - 0.5;
-      const y = event.clientY / window.innerHeight - 0.5;
-      setPointer({ x, y });
-    };
-    window.addEventListener("pointermove", handlePointer, { passive: true });
-    const sceneSections = [
-      ["top", "hero"], ["model", "model"], ["terms", "fit"], ["work", "work"],
-      ["questions", "questions"], ["application", "application"],
-    ] as const;
-    let lastY = window.scrollY;
-    let raf = 0;
-    const updateScene = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const marker = window.scrollY + window.innerHeight * 0.42;
-        let next: SceneKey = "hero";
-        let scenePosition = 0;
-        sceneSections.forEach(([id, key], index) => {
-          const node = document.getElementById(id);
-          const nextNode = sceneSections[index + 1] ? document.getElementById(sceneSections[index + 1][0]) : null;
-          if (node && node.offsetTop <= marker) {
-            next = key;
-            const end = nextNode?.offsetTop ?? document.documentElement.scrollHeight;
-            scenePosition = Math.max(0, Math.min(1, (marker - node.offsetTop) / Math.max(1, end - node.offsetTop)));
-          }
-        });
-        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-        setScrollProgress(window.scrollY / maxScroll);
-        setScrollVelocity(Math.max(-1, Math.min(1, (window.scrollY - lastY) / 180)));
-        lastY = window.scrollY;
-        const denseKey = denseForScene[next];
-        if (denseKey) {
-          const frames = denseFrames[denseKey];
-          const nextFrame = Math.min(frames.length - 1, Math.round(scenePosition * (frames.length - 1)));
-          activeFrameRef.current = nextFrame;
-          setActiveFrameIndex((value) => value === nextFrame ? value : nextFrame);
-        } else {
-          activeFrameRef.current = 0;
-          setActiveFrameIndex(0);
-        }
-        setSceneMix(next === "hero" ? 1 : scenePosition);
-        if (next !== activeSceneRef.current) {
-          activeSceneRef.current = next;
-          setActiveScene(next);
-          setSceneTransition((value) => value + 1);
-        }
-      });
-    };
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.16 });
-    document.querySelectorAll(".reveal-section").forEach((section) => revealObserver.observe(section));
-    updateScene();
-    window.addEventListener("scroll", updateScene, { passive: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      revealObserver.disconnect();
-      window.removeEventListener("pointermove", handlePointer);
-      window.removeEventListener("scroll", updateScene);
-    };
+    const scroll = () => setScrolled(window.scrollY > 20);
+    const move = (e: PointerEvent) => setPointer({ x: e.clientX / Math.max(innerWidth,1) - .5, y: e.clientY / Math.max(innerHeight,1) - .5 });
+    scroll(); addEventListener("scroll", scroll, {passive:true}); addEventListener("pointermove", move, {passive:true});
+    return () => { removeEventListener("scroll", scroll); removeEventListener("pointermove", move); };
   }, []);
 
-  const scrollTo = (href: string) => {
-    setMenuOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const go = (id: string) => { setMenu(false); document.querySelector(id)?.scrollIntoView({behavior:"smooth"}); };
+  const style = {"--px": `${pointer.x*18}px`, "--py": `${pointer.y*12}px`} as CSSProperties;
 
-  return (
-    <main
-      className="site-shell"
-      style={{
-        "--pointer-x": `${pointer.x * 24}px`,
-        "--pointer-y": `${pointer.y * 18}px`,
-        "--scroll-progress": scrollProgress,
-        "--scroll-velocity": scrollVelocity,
-        "--scene-mix": sceneMix,
-      } as CSSProperties}
-    >
-      <div className="global-scene" aria-hidden="true">
-        <div className="scene-grid" />
-        <SceneLayer key={`${activeScene}-${sceneTransition}`} scene={activeScene} frameIndex={activeFrameIndex} className="scene-image scene-image-to" style={{ opacity: 1 }} />
-        <div className="scene-vignette" />
-        <div className="scene-scanline" />
-        <div className="scene-transition-grain" />
-        <div className="scene-coordinate scene-coordinate-a">48°51′N / 02°21′E</div>
-        <div className="scene-coordinate scene-coordinate-b">OBJECT / {String(Object.keys(sceneFilms).indexOf(activeScene) + 1).padStart(2, "0")}</div>
-        <div className="reference-markers reference-left" aria-hidden="true"><span>4</span><span>5</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
-        <div className="reference-marker marker-top" aria-hidden="true">2</div>
-        <div className="reference-marker marker-apply" aria-hidden="true">6</div>
-        <div className="reference-marker marker-cta" aria-hidden="true">11</div>
-        <div className="reference-marker marker-bottom" aria-hidden="true">3</div>
+  return <main className="oundnote-site" style={style}>
+    <div className="ambient ambient-a"/><div className="ambient ambient-b"/>
+    <header className={`topbar ${scrolled ? "scrolled" : ""}`}>
+      <button className="wordmark" onClick={()=>go("#top")}><span className="mark"><AudioLines size={16}/></span>OUNDNOTE</button>
+      <nav><button onClick={()=>go("#capabilities")}>CAPABILITIES</button><button onClick={()=>go("#privacy")}>PRIVACY</button><button onClick={()=>go("#mcp")}>MCP</button><button onClick={()=>go("#faq")}>FAQ</button></nav>
+      <div className="top-actions">
+        <a href="https://github.com/Aravindh-dev12/oundnote" target="_blank" rel="noreferrer"><Github size={14}/> GITHUB</a>
+        <a className="small-cta" href="https://github.com/Aravindh-dev12/oundnote#installation" target="_blank" rel="noreferrer">GET STARTED <ArrowRight size={13}/></a>
+        <button className="menu-button" onClick={()=>setMenu(true)} aria-label="Open menu"><Menu size={19}/></button>
       </div>
-      <header className="site-header">
-        <button className="logo-lockup" onClick={() => scrollTo("#top")} aria-label="Back to top">
-          <img src={pearMark} alt="" className="brand-mark" />
-          <span>PEAR</span>
-        </button>
-        <div className="header-meta">
-          <a className="email-link" href="mailto:info@pear.no">INFO@PEAR.NO</a>
-          <button className="apply-link" onClick={() => setApplicationOpen(true)}>APPLY <ArrowUpRight size={12} strokeWidth={1.4} /></button>
-          <button className="menu-trigger" onClick={() => setMenuOpen(true)} aria-label="Open menu">
-            <Menu size={16} strokeWidth={1.4} />
-            <span>MENU</span>
-          </button>
-        </div>
-      </header>
+    </header>
 
-      <div className={`menu-drawer ${menuOpen ? "is-open" : ""}`} aria-hidden={!menuOpen}>
-        <div className="menu-wash" />
-        <div className="drawer-topline">
-          <span className="eyebrow">INDEX / 00—04</span>
-          <button className="close-button" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={18} /></button>
-        </div>
-        <nav className="drawer-nav">
-          {navItems.map(([label, href], index) => (
-            <button key={href} onClick={() => scrollTo(href)}>
-              <span className="drawer-index">0{index + 1}</span>
-              <span>{label}</span>
-              <ArrowUpRight size={18} strokeWidth={1.4} />
-            </button>
-          ))}
-        </nav>
-        <div className="drawer-footer">
-          <span>PEAR AS · OSLO</span>
-          <a href="mailto:info@pear.no">INFO@PEAR.NO</a>
-        </div>
-      </div>
+    <div className={`drawer ${menu ? "open" : ""}`}>
+      <div className="drawer-head"><span>OUNDNOTE / MENU</span><button onClick={()=>setMenu(false)}><X size={19}/></button></div>
+      {["#capabilities|Capabilities","#privacy|Privacy","#workflow|Workflow","#mcp|Local MCP","#faq|FAQ"].map(v=>{const [id,label]=v.split("|"); return <button className="drawer-link" key={id} onClick={()=>go(id)}>{label}<ArrowRight size={18}/></button>;})}
+      <a className="drawer-cta" href="https://github.com/Aravindh-dev12/oundnote#installation" target="_blank" rel="noreferrer">INSTALL OUNDNOTE <ArrowRight size={15}/></a>
+    </div>
 
-      <section id="top" className="hero-section section-rule">
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="crosshair crosshair-top" />
-        <div className="crosshair crosshair-bottom" />
+    <section id="top" className="hero">
+      <div className="hero-bg"><div className="orb"/><div className="scan scan-a"/><div className="scan scan-b"/><i className="cross cross-a"/><i className="cross cross-b"/></div>
+      <div className="hero-meta"><span>LOCAL AI / MEETING MEMORY</span><span>WINDOWS · macOS · LINUX</span></div>
+      <div className="hero-grid-content">
         <div className="hero-copy">
-          <h1 className="hero-title reveal reveal-2">Pear makes you appear.</h1>
-          <p className="hero-subtitle reveal reveal-3">Not an agency on the clock,<br />a partner in the upside.</p>
-          <button className="signal-button signal-button-reference reveal reveal-4" onClick={() => setApplicationOpen(true)}>
-            <span>REQUEST PARTNERSHIP</span><ArrowUpRight size={15} strokeWidth={1.4} />
-          </button>
+          <Kicker>PRIVATE MEETING INTELLIGENCE</Kicker>
+          <h1>Your conversations.<br/><em>Your computer.</em><br/>Your memory.</h1>
+          <p>Oundnote records, transcribes, identifies speakers, and turns meetings into searchable knowledge — without handing your conversation archive to a cloud service.</p>
+          <div className="actions"><a className="primary" href="https://github.com/Aravindh-dev12/oundnote#installation" target="_blank" rel="noreferrer">INSTALL LOCALLY <ArrowRight size={15}/></a><button className="text-link" onClick={()=>go("#capabilities")}>EXPLORE THE SYSTEM <ArrowRight size={15}/></button></div>
         </div>
-        <div className="hero-bottomline">
-          <span className="eyebrow">AT YOUR SERVICE</span>
-          <p>We build custom software, rank it where customers search, and take our pay as a share of the revenue it earns. No retainers, no hours: if you don’t grow, we don’t get paid.</p>
-          <span className="scroll-note">SCROLL TO EXPLORE <span>↓</span></span>
-        </div>
-      </section>
-
-      <section id="model" className="statement-section section-rule reveal-section">
-        <div className="section-number">01</div>
-        <div className="section-label eyebrow">THE MODEL</div>
-        <div className="statement-content">
-          <h2>No fees.<br /><em>A share</em><br />of the upside.</h2>
-          <p className="lead-copy">You pay nothing to start: no retainer, no project fee, no hours on a clock. We carry the cost of strategy, development, content and links.</p>
-          <div className="disclosure-block">
-            <span className="eyebrow">FULL DISCLOSURE</span>
-            <p>Our pay is an agreed share of the revenue the work creates, measured against your baseline and visible to both sides. You keep everything we build: the software, the content, the rankings.</p>
-          </div>
-        </div>
-        <div className="model-signal"><span>30%</span><span>ABOVE BASELINE</span><i /></div>
-      </section>
-
-      <section id="terms" className="fit-section section-rule reveal-section">
-        <div className="section-number">02</div>
-        <div className="section-label eyebrow">THE FIT</div>
-        <div className="fit-content">
-          <h2>We say no<br /><em>more often</em><br />than yes.</h2>
-          <div className="fit-details">
-            <p>Our partners sell real products and services, have revenue to grow, and compete in markets where customers search: e-commerce, SaaS, marketplaces, service companies.</p>
-            <div className="not-for-you">
-              <span className="eyebrow">NOT FOR EVERYONE</span>
-              <p>If you’re pre-revenue, want to rent developers by the hour, or need results by Friday, we’re the wrong partner. We’ll tell you in the first call.</p>
-            </div>
-          </div>
-        </div>
-        <div className="fit-stamp">SELECTIVE<br /><strong>BY DESIGN</strong></div>
-      </section>
-
-      <section id="work" className="work-section section-rule reveal-section">
-        <div className="work-copy">
-          <div className="section-number">03</div>
-          <div className="section-label eyebrow">THE WORK</div>
-          <h2>Everything it takes<br />to be <em>found,</em><br />under one roof.</h2>
-          <div className="work-subblock">
-            <span className="eyebrow">SEARCH ENGINE OPTIMIZATION</span>
-            <h3>Search and software are one <em>discipline</em> at Pear.</h3>
-            <p>The product is built to rank from its first commit, and the SEO is done by the people who wrote the code.</p>
-          </div>
-          <div className="work-subblock">
-            <span className="eyebrow">CUSTOM SOFTWARE</span>
-            <h3>We design and build the thing being <em>ranked.</em></h3>
-            <p>Storefronts, marketplaces, booking systems — the machinery a modern company sells through.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="capability-section section-rule reveal-section">
-        <div className="section-label eyebrow">THE BUILD</div>
-        <div className="capability-grid">
-          <div className="capability-title"><span className="section-number">04</span><h2>Built to rank<br /><em>from the first commit.</em></h2></div>
-          <p>Most software is built first and optimized later, which is backwards. Architecture, speed and structure decide rankings before the first word of copy is written.</p>
-          <p>Ours ships fast, renders clean, and gives search engines a site they can read without excuses.</p>
-        </div>
-      </section>
-
-      <section id="questions" className="questions-section section-rule reveal-section">
-        <div className="section-number">05</div>
-        <div className="section-label eyebrow">ASKED BEFORE</div>
-        <div className="questions-content">
-          <h2>The short<br /><em>version.</em></h2>
-          <div className="faq-list">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div className={`faq-item ${isOpen ? "is-open" : ""}`} key={faq.question}>
-                  <button onClick={() => setOpenFaq(isOpen ? -1 : index)} aria-expanded={isOpen}>
-                    <span>{faq.question}</span><ChevronDown size={18} strokeWidth={1.3} />
-                  </button>
-                  <div className="faq-answer"><p>{faq.answer}</p></div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="application-section section-rule reveal-section">
-        <div className="application-mark"><img src={pearMark} alt="" /><span>PEAR / APPLY</span></div>
-        <div className="application-copy">
-          <span className="eyebrow">THE APPLICATION</span>
-          <h2>Make your next<br /><em>move visible.</em></h2>
-          <p>Tell us what you sell and where you want to grow. Every application is read, and when the model fits we answer within a week.</p>
-          <button className="signal-button signal-button-light" onClick={() => setApplicationOpen(true)}>
-            <span>SEND THE APPLICATION</span><ArrowUpRight size={15} strokeWidth={1.4} />
-          </button>
-        </div>
-        <div className="application-foot"><span>PEAR AS · ORG NR 919 062 517 · OSLO</span><a href="mailto:info@pear.no">INFO@PEAR.NO</a></div>
-      </section>
-
-      <footer className="site-footer">
-        <span>PEAR MAKES YOU APPEAR.</span>
-        <span>© 2026 PEAR AS</span>
-        <button onClick={() => scrollTo("#top")} aria-label="Back to top">BACK TO TOP ↑</button>
-      </footer>
-
-      <div className={`application-modal ${applicationOpen ? "is-open" : ""}`} aria-hidden={!applicationOpen}>
-        <div className="modal-panel">
-          <div className="modal-header"><span className="eyebrow">REQUEST / PARTNERSHIP</span><button onClick={() => setApplicationOpen(false)} aria-label="Close application"><X size={18} /></button></div>
-          <h2>Tell us where<br /><em>you want to grow.</em></h2>
-          <p>We read every application. If the model fits, we’ll be in touch within a week.</p>
-          <a className="signal-button signal-button-light" href="mailto:info@pear.no?subject=Partnership%20application">EMAIL PEAR <ArrowUpRight size={15} /></a>
-          <span className="modal-note">INFO@PEAR.NO / OSLO / REVENUE SHARE ONLY</span>
+        <div className="console">
+          <div className="console-head"><span><b/> OUNDNOTE / LIVE</span><span>MEETING_042</span></div>
+          <div className="wave">{Array.from({length:48},(_,i)=><i key={i} style={{height:`${18+(i*17)%62}%`}}/>)}</div>
+          {[["A","Speaker 01","00:14:32 · We should move this into the next release."],["B","Speaker 02","00:14:41 · Agreed. I’ll own the migration plan."]].map(([letter,name,line],i)=><div className="speaker" key={letter}><span className={`avatar a${i}`}>{letter}</span><div><strong>{name}</strong><small>{line}</small></div></div>)}
+          <div className="console-foot"><span><Search size={12}/> HYBRID SEARCH READY</span><span><LockKeyhole size={12}/> LOCAL ONLY</span></div>
         </div>
       </div>
-    </main>
-  );
+      <div className="hero-foot"><span>OPEN-SOURCE / SELF-HOSTED</span><span>ALPHA / 0.7.1</span><span>SCROLL ↓</span></div>
+    </section>
+
+    <section id="capabilities" className="section">
+      <div className="heading"><div><Kicker>01 / CAPABILITIES</Kicker><h2>From raw audio<br/>to <em>useful memory.</em></h2></div><p>One local pipeline for capture, transcription, diarization, retrieval, analysis, and the small details that make a meeting archive genuinely useful.</p></div>
+      <div className="feature-grid">{features.map(x=><FeatureCard item={x} key={x.title}/>)}</div>
+    </section>
+
+    <section id="privacy" className="section privacy">
+      <div className="privacy-panel">
+        <div className="privacy-visual"><div className="ring r1"/><div className="ring r2"/><div className="core"><ShieldCheck size={32}/></div><span className="orbit o1">AUDIO</span><span className="orbit o2">MODELS</span><span className="orbit o3">NOTES</span><span className="orbit o4">INDEX</span></div>
+        <div className="privacy-copy"><Kicker>02 / PRIVACY</Kicker><h2>The archive stays<br/><em>with you.</em></h2><p>Oundnote is built around local ownership. Your recordings, transcripts, models, and meeting data are designed to live on your machine. External integrations are explicit, bounded, and optional.</p><div className="checks">{["Local SQLite workspace","Read-only local MCP access","Explicit integration controls","No cloud account required for core workflows"].map(x=><div key={x}><Check size={14}/>{x}</div>)}</div></div>
+      </div>
+    </section>
+
+    <section id="workflow" className="section">
+      <div className="heading"><div><Kicker>03 / THE WORKFLOW</Kicker><h2>A meeting becomes<br/><em>an interface.</em></h2></div><p>The system is deliberately modular: each stage can be selected, disabled, replaced, or tuned without tying the entire application to one model.</p></div>
+      <div className="workflow">{[[Mic,"01","Capture","Microphone + system audio, imports, live meters"],[AudioLines,"02","Transcribe","Live and final engines with timestamps"],[Users,"03","Identify","Speaker turns, names, saved voice matching"],[Database,"04","Index","SQLite, FTS5, embeddings, hybrid retrieval"],[Sparkles,"05","Understand","AI notes, prompts, grounded evidence"]].map(([I,n,t,c])=>{const Icon=I as LucideIcon; return <div className="step" key={String(n)}><span>{n}</span><div><Icon size={18}/></div><h3>{t}</h3><p>{c}</p></div>})}</div>
+    </section>
+
+    <section id="mcp" className="section mcp">
+      <div className="mcp-copy"><Kicker>04 / LOCAL MCP</Kicker><h2>Make your meeting<br/><em>memory available to AI.</em></h2><p>Connect Claude Desktop, ChatGPT Desktop, Codex, and compatible MCP clients to the completed meetings already on your computer. Ask questions naturally while keeping the source database and recordings behind a bounded local API.</p><a className="primary" href="https://github.com/Aravindh-dev12/oundnote/blob/main/docs/mcp.md" target="_blank" rel="noreferrer">READ THE MCP GUIDE <ArrowRight size={15}/></a></div>
+      <div className="diagram"><div className="d-box"><Monitor size={19}/><span>DESKTOP AI</span><small>Claude / ChatGPT / Codex</small></div><div className="connector"/><div className="d-box mid"><Network size={18}/><span>MCP</span><small>READ ONLY</small></div><div className="connector"/><div className="d-box core-box"><Database size={20}/><span>OUNDNOTE</span><small>LOCAL KNOWLEDGE</small></div><small className="caption"><LockKeyhole size={12}/> LOOPBACK / BOUNDED ACCESS / SOURCE PROVENANCE</small></div>
+    </section>
+
+    <section className="section principles"><div className="principles-intro"><Kicker>05 / PRINCIPLES</Kicker><h2>Built around<br/><em>control.</em></h2></div><div className="principles-list">{principles.map(x=><div className="principle" key={x[0]}><span>{x[0]}</span><strong>{x[1]}</strong><p>{x[2]}</p></div>)}</div></section>
+
+    <section id="faq" className="section faq"><div><Kicker>06 / FAQ</Kicker><h2>The short<br/><em>version.</em></h2></div><div className="faq-list">{faqs.map(([q,a],i)=>{const open=faq===i; return <div className={`faq-item ${open?"open":""}`} key={q}><button onClick={()=>setFaq(open?-1:i)} aria-expanded={open}><span>{q}</span><ChevronDown size={18}/></button><div className="answer"><p>{a}</p></div></div>})}</div></section>
+
+    <section className="final"><div className="final-grid"/><div><Kicker>07 / START HERE</Kicker><h2>Keep the conversation.<br/><em>Keep the memory.</em></h2><p>Explore the source, install Oundnote locally, and build your own private meeting knowledge base.</p><div className="actions center"><a className="primary" href="https://github.com/Aravindh-dev12/oundnote#installation" target="_blank" rel="noreferrer">GET OUNDNOTE <ArrowRight size={15}/></a><a className="text-link" href="https://oundnote.eu" target="_blank" rel="noreferrer">OUNDNOTE.EU <ArrowRight size={15}/></a></div></div></section>
+
+    <footer><span className="footer-brand"><span className="mark"><AudioLines size={14}/></span> OUNDNOTE</span><span>PRIVATE AI MEETING MEMORY</span><a href="https://github.com/Aravindh-dev12/oundnote" target="_blank" rel="noreferrer"><Github size={13}/> SOURCE</a><span>© 2026</span></footer>
+  </main>;
 }
