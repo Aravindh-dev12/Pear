@@ -23,7 +23,7 @@ function WebGPUField() {
         "@vertex fn vs(@builtin(vertex_index) i:u32)->@builtin(position) vec4<f32>{ var p=array<vec2<f32>,3>(vec2<f32>(-1.,-1.),vec2<f32>(3.,-1.),vec2<f32>(-1.,3.)); return vec4<f32>(p[i],0.,1.); }",
         "fn hash(p:vec2<f32>)->f32{ return fract(sin(dot(p,vec2<f32>(127.1,311.7)))*43758.5453); }",
         "@fragment fn fs(@builtin(position) p:vec4<f32>)->@location(0) vec4<f32>{",
-        "var uv=(p.xy/vec2<f32>(800.,800.))-.5; uv.x*=u.aspect;",
+        "var uv=(p.xy/vec2<f32>(1200.,1200.))-.5; uv.x*=u.aspect;",
         "let t=u.t*.12; var col=vec3<f32>(0.);",
         "for(var i:f32=1.;i<7.;i+=1.){ let a=atan2(uv.y,uv.x)+sin(t+i)*.12; let r=length(uv); let wave=abs(r-(.12*i+.035*sin(a*5.+t*i)*.018)); let glow=.0025/max(wave,.001); col+=vec3<f32>(.72,.76,.78)*glow*(.25+hash(vec2<f32>(i,i*3.1))); }",
         "let beam=exp(-abs(uv.y-sin(uv.x*3.+t)*.035)*90.); col+=vec3<f32>(.55,.58,.6)*beam*.035;",
